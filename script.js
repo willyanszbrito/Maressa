@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const toastContainer = document.getElementById('toast-container');
 
-    // Sequência de "entregas" virtuais
     const gifts = [
         { icon: '🎁', text: 'Preparando seu presente...' },
         { icon: '🍫', text: 'Caixa de Bombom Garoto (com Caribe!) entregue.' },
-        { icon: '🍌', text: 'Bala Fini de Banana adicionada ao pacote.' },
         { icon: '✨', text: 'Tudo pronto. Pode entrar!' }
     ];
 
@@ -15,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             createToast(gift.icon, gift.text);
         }, delay);
-        delay += 2000; // Intervalo entre as mensagens
+        delay += 2000;
     });
 
     function createToast(icon, text) {
@@ -29,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         toastContainer.appendChild(bubble);
 
-        // Remove a notificação após 5 segundos para não poluir a tela
         setTimeout(() => {
             bubble.style.opacity = '0';
             bubble.style.transition = 'opacity 0.5s';
