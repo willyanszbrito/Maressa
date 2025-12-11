@@ -8,6 +8,8 @@
     --btn-color: #8ab4f8;
     --btn-hover: #aecbfa;
     --btn-text: #202124;
+    --paper-color: #f4e4bc;
+    --ink-color: #2c2c2c;
 }
 
 * {
@@ -20,7 +22,7 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-primary);
-    min-height: 100vh; /* Alterado para min-height para evitar cortes em telas pequenas */
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,10 +32,8 @@ body {
 .container {
     width: 100%;
     max-width: 500px;
-    perspective: 1000px; /* Para efeito de transição 3D se quiser no futuro */
 }
 
-/* Classe utilitária para esconder telas */
 .hidden {
     display: none !important;
 }
@@ -54,7 +54,7 @@ body {
 }
 
 .icon-logo {
-    height: 40px; /* Ajustado para ícone quadrado */
+    height: 45px;
     width: auto;
     margin-bottom: 20px;
 }
@@ -85,42 +85,44 @@ h1 {
     font-weight: 400;
 }
 
-h2 {
-    font-weight: 400;
-    color: var(--google-blue);
-    margin-bottom: 20px;
-}
-
 .intro-subtitle {
     color: var(--text-secondary);
     margin-bottom: 30px;
 }
 
-/* Estilo da mensagem na segunda tela */
-.featured-message {
-    background-color: rgba(129, 201, 149, 0.1); /* Fundo esverdeado suave */
-    padding: 25px;
-    border-radius: 12px;
+/* --- Estilos da Carta Animada --- */
+.letter-paper {
+    background-color: var(--paper-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     margin-bottom: 30px;
-    border-left: 4px solid var(--google-green); /* Borda verde para destaque */
     text-align: left;
+    position: relative;
+    background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px);
+    background-size: 100% 1.5rem; /* Linhas de caderno sutis */
 }
 
-.quote {
-    font-style: italic;
-    line-height: 1.6;
-    font-size: 1.15rem;
-    margin-bottom: 15px;
-    color: var(--text-primary);
+.handwritten-text {
+    font-family: 'Dancing Script', cursive;
+    color: var(--ink-color);
+    font-size: 1.3rem;
+    line-height: 1.5;
+    white-space: pre-wrap; /* Mantém as quebras de linha do texto */
 }
 
-.from {
-    font-size: 1rem;
-    color: var(--google-green);
-    font-weight: bold;
-    text-align: right;
+/* Cursor piscando durante a digitação */
+.typing-cursor::after {
+    content: '|';
+    animation: blink 1s infinite;
 }
 
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- Botões --- */
 .btn-join {
     display: inline-flex;
     align-items: center;
@@ -131,7 +133,7 @@ h2 {
     text-decoration: none;
     padding: 15px 30px;
     border-radius: 30px;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.1rem;
     transition: all 0.2s;
     width: 100%;
@@ -144,7 +146,6 @@ h2 {
     transform: translateY(-2px);
 }
 
-/* Botão final com cor diferente */
 .btn-final {
     background-color: var(--google-green);
     color: #202124;
@@ -153,13 +154,7 @@ h2 {
     background-color: #a8dab5;
 }
 
-.footer-note {
-    margin-top: 20px;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-}
-
-/* Toast Notifications */
+/* Toast Notifications (Mantido igual) */
 .toast-container {
     position: fixed;
     bottom: 30px;
