@@ -10,9 +10,10 @@
 <body>
 
     <div class="container">
-        <div class="gift-card">
+        
+        <div id="screen-intro" class="gift-card">
             <div class="header">
-                <img src="https://www.gstatic.com/meet/google_meet_horizontal_wordmark_2020q4_1x_icon_124_40_8663de60bbe4106ec8808a11327173db.png" alt="Meet Logo" class="logo">
+                <img src="google_meet_new_logo_icon_159138.webp" alt="Meet Logo" class="logo icon-logo">
             </div>
 
             <div class="content">
@@ -21,26 +22,42 @@
                 </div>
                 
                 <h1>Olá, Maressa!</h1>
+                <p class="intro-subtitle">Sua presença é aguardada na sala.</p>
                 
-                <div class="message-box">
+                <div class="gift-status-area">
+                    </div>
+
+                <button id="btn-reveal" class="btn-join">
+                    <i class="material-icons">redeem</i>
+                    Abrir Chamada
+                </button>
+            </div>
+        </div>
+
+        <div id="screen-message" class="gift-card hidden">
+             <div class="header">
+                <img src="google_meet_new_logo_icon_159138.webp" alt="Meet Logo" class="logo icon-logo">
+            </div>
+            <div class="content card-focus">
+                <h2>Um recado especial...</h2>
+                
+                <div class="message-box featured-message">
                     <p class="quote">
-                        "Admiro imensamente sua força, seu carisma e seus sorrisos em meio à adversidade. 
+                        "Maressa,<br><br>
+                        Admiro imensamente sua força, seu carisma e seus sorrisos em meio à adversidade. 
                         Você inspira muito, é amável e doce."
                     </p>
                     <p class="from">- Will</p>
                 </div>
 
-                <div class="gift-status" id="gift-status">
-                    </div>
-
-                <a href="https://meet.google.com/qyk-gqhx-tbj" target="_blank" class="btn-join">
+                <a href="https://meet.google.com/qyk-gqhx-tbj" class="btn-join btn-final">
                     <i class="material-icons">video_call</i>
-                    Entrar na Chamada Agora
+                    Entrar agora
                 </a>
-                
                 <p class="footer-note">Estou te esperando lá!</p>
             </div>
         </div>
+
     </div>
 
     <div class="toast-container" id="toast-container"></div>

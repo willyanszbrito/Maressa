@@ -20,7 +20,7 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-primary);
-    height: 100vh;
+    min-height: 100vh; /* Alterado para min-height para evitar cortes em telas pequenas */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,6 +30,12 @@ body {
 .container {
     width: 100%;
     max-width: 500px;
+    perspective: 1000px; /* Para efeito de transição 3D se quiser no futuro */
+}
+
+/* Classe utilitária para esconder telas */
+.hidden {
+    display: none !important;
 }
 
 .gift-card {
@@ -39,12 +45,18 @@ body {
     text-align: center;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     border: 1px solid #5f6368;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-.logo {
-    height: 24px;
-    opacity: 0.8;
-    margin-bottom: 30px;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.icon-logo {
+    height: 40px; /* Ajustado para ícone quadrado */
+    width: auto;
+    margin-bottom: 20px;
 }
 
 .avatar-container {
@@ -56,7 +68,7 @@ body {
 .avatar {
     width: 80px;
     height: 80px;
-    background-color: #e37400; /* Cor laranja vibrante */
+    background-color: #e37400;
     color: white;
     font-size: 36px;
     border-radius: 50%;
@@ -69,29 +81,42 @@ body {
 
 h1 {
     font-size: 1.8rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-weight: 400;
 }
 
-.message-box {
-    background-color: rgba(138, 180, 248, 0.1);
-    padding: 20px;
-    border-radius: 8px;
+h2 {
+    font-weight: 400;
+    color: var(--google-blue);
+    margin-bottom: 20px;
+}
+
+.intro-subtitle {
+    color: var(--text-secondary);
     margin-bottom: 30px;
-    border-left: 4px solid var(--google-blue);
+}
+
+/* Estilo da mensagem na segunda tela */
+.featured-message {
+    background-color: rgba(129, 201, 149, 0.1); /* Fundo esverdeado suave */
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border-left: 4px solid var(--google-green); /* Borda verde para destaque */
+    text-align: left;
 }
 
 .quote {
     font-style: italic;
     line-height: 1.6;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+    font-size: 1.15rem;
+    margin-bottom: 15px;
     color: var(--text-primary);
 }
 
 .from {
-    font-size: 0.9rem;
-    color: var(--google-blue);
+    font-size: 1rem;
+    color: var(--google-green);
     font-weight: bold;
     text-align: right;
 }
@@ -108,13 +133,24 @@ h1 {
     border-radius: 30px;
     font-weight: 500;
     font-size: 1.1rem;
-    transition: transform 0.2s, background-color 0.2s;
+    transition: all 0.2s;
     width: 100%;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-join:hover {
     background-color: var(--btn-hover);
     transform: translateY(-2px);
+}
+
+/* Botão final com cor diferente */
+.btn-final {
+    background-color: var(--google-green);
+    color: #202124;
+}
+.btn-final:hover {
+    background-color: #a8dab5;
 }
 
 .footer-note {
